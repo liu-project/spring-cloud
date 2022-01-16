@@ -3,6 +3,7 @@ package com.example.demo.controller.file;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URLEncoder;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,6 +23,9 @@ public class PdfFileController {
 	public void download(@PathVariable("filename")String filename, HttpServletResponse response) throws IOException {
 		String fullPath = "static/" + filename;
 		response.addHeader("Content-Type", "application/pdf");
+		//直接下载时要指定
+//		response.addHeader("Content-Disposition", "attachment;fileName=" + URLEncoder.encode("CA搭建过程.pdf", "UTF-8"));
+		response.addHeader("Content-Disposition", "fileName=" + URLEncoder.encode("修改保存的文件名测试.pdf", "UTF-8"));
 		InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream(fullPath);
 		OutputStream out = response.getOutputStream();
 		byte[] buf = new byte[512];
