@@ -1,4 +1,4 @@
-package com.example.feign.dto;
+package com.example.web.dto;
 
 import java.io.Serializable;
 

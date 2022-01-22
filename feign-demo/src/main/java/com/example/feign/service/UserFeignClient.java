@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.feign.dto.UserDTO;
 
-@FeignClient("USER-SERVICE")
+@FeignClient("WEB-DEMO")
 public interface UserFeignClient {
 	
 	@GetMapping("/{id}")
